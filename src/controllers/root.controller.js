@@ -6,5 +6,12 @@ import express from "express";
  * @param {express.Response} res 
  */
 export function getRootHandler(req, res) {
-    res.status(200).send("Hello, World!");
-}
+    const { someValue } = req.params;
+
+     // Fast-returns, guard-clauses, early-return
+    if (someValue !== "ping") {
+        return res.status(400).send(`Invalid input! Got "${someValue}", expected "ping"`);
+    }
+    
+    res.status(200).send("Pong!");
+} 

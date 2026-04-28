@@ -5,3 +5,4 @@
 4. Opprett fil: `src/index.js`
 5. Sett opp `src/index.js` med endepunkt og oppstart av server
 6. Installere `nodemon`, `npm i -D nodemon` - `npm i --save-dev nodemon`
+7. Installere `vitest`

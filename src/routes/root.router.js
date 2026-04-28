@@ -3,4 +3,4 @@ import { getRootHandler } from "../controllers/root.controller.js";
 
 export const rootRouter = express.Router();
 
-rootRouter.get("/", getRootHandler);
+rootRouter.get("/:someValue", getRootHandler);
