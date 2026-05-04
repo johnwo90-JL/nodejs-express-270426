@@ -6,6 +6,8 @@ import express from "express";
  * @param {express.Response} res 
  */
 export function getRootHandler(req, res) {
+    console.debug("[DBG] Request ID:", req.requestId);
+
     const { someValue } = req.params;
 
      // Fast-returns, guard-clauses, early-return
