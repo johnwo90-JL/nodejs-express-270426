@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import request from "supertest";
 
-import { app } from "../index.js";
+import { app } from "../server.js";
 
 
 describe("Unit - Root GET request handler", () => {
