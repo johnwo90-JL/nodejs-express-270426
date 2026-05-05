@@ -1,4 +1,5 @@
 import express from "express";
+import { RootSchemaPostData } from "../schemas/root.schema.js";
 
 /**
  * Handler for the `/`-endpoint
@@ -24,10 +25,11 @@ export function getRootHandler(req, res) {
  * @param {express.Request} req
  * @param {express.Response} res 
  */
-export function postRootDataHandler(req, res) {
+export async function postRootDataHandler(req, res) {
     console.debug("[DBG] Request ID:", req.requestId);
-
-    const { email, password } = req.body;
+    
+    const { email, password } = req.parsedData;
     
     res.status(200).json({ email, password });
+
 } 

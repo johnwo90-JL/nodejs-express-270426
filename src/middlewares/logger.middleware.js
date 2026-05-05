@@ -24,7 +24,7 @@ export function requestLoggerMiddleware(req, res, next) {
         writeFileSync(resolve(process.cwd(), "logs", logfile), "");
     }
 
-    const logEntry = `${new Date().toISOString()}   - ${req.method} ${req.url} ${req.requestId}\n`;
+    const logEntry = `${new Date().toISOString()}  ${res.headersSent ? "-->" : "<--"} ${res.statusCode} ${req.method} ${req.url} ${req.requestId}\n`;
     appendFileSync(resolve(process.cwd(), "logs", logfile), logEntry);
     console.log(logEntry);
 
