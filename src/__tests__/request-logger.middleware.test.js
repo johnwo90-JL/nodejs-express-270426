@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { requestLoggerMiddleware } from "../middleware/logger.middleware";
+import { requestLoggerMiddleware } from "../middlewares/logger.middleware";
 
 console.log = vi.fn();
 

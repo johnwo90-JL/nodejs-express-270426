@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { generateRequestId } from "../middleware/request-id.middleware";
+import { generateRequestId } from "../middlewares/request-id.middleware";
 
 describe("Request ID middleware", () => {
     it("should generate a random UUID for `req`", () => {

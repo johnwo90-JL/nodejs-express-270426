@@ -1,10 +1,11 @@
-import express from "express";
+import express, { json } from "express";
 import { rootRouter, minRouter } from "./routes/index.js";
 
 // Express.js app
 export const app = express();
 
 // Opprette endepunkt "[hostaddr]/"
+app.use(json());
 app.use("/", rootRouter);
 app.use("/mine-endepunkter", minRouter);
 

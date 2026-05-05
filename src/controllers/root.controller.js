@@ -17,3 +17,17 @@ export function getRootHandler(req, res) {
     
     res.status(200).send("Pong!");
 } 
+
+
+/**
+ * Handler for the `/data`-endpoint
+ * @param {express.Request} req
+ * @param {express.Response} res 
+ */
+export function postRootDataHandler(req, res) {
+    console.debug("[DBG] Request ID:", req.requestId);
+
+    const { email, password } = req.body;
+    
+    res.status(200).json({ email, password });
+} 
