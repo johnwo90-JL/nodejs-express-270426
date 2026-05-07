@@ -2,14 +2,18 @@ import express, { json } from "express";
 import { rootRouter, minRouter } from "./routes/index.js";
 import { requestLoggerMiddleware } from "./middlewares/logger.middleware.js";
 import { ErrorHandler } from "./middlewares/error-handler.middleware.js";
+import { usersRouter } from "./routes/users.router.js";
 
 // Express.js app
 export const app = express();
 
 // Opprette endepunkt "[hostaddr]/"
 app.use(json());
+
+
 app.use("/", rootRouter);
 app.use("/mine-endepunkter", minRouter);
+app.use("/users", usersRouter)
 
 // app.use(ErrorHandler);
 app.use(async (err, req, res, next) => {
