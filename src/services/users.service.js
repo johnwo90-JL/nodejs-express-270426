@@ -19,3 +19,6 @@ export function getById(id) {
     return filtered[0] ?? null;
 }
 
+export function getAll() {
+    return users;
+}

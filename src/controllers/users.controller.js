@@ -1,9 +1,11 @@
 import express from "express";
 import { RootSchemaPostData } from "../schemas/root.schema.js";
-import { getById } from "../services/users.service.js";
+import { getAll, getById } from "../services/users.service.js";
 
 /**
- * Handler for the `/`-endpoint
+ * Handler for the `/:id`-endpoint
+ * Returns one specific user
+ * 
  * @param {express.Request} req
  * @param {express.Response} res 
  */
@@ -17,4 +19,18 @@ export function getUser(req, res) {
     }
     
     res.status(200).send(user);
+} 
+
+
+/**
+ * Handler for the `/`-endpoint
+ * Returns all users
+ * 
+ * @param {express.Request} req
+ * @param {express.Response} res 
+ */
+export function getUsers(req, res) {
+    const users = getAll();
+    
+    res.status(200).send(users);
 } 

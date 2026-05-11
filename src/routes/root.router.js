@@ -7,5 +7,5 @@ import { validateRequestDataSchema } from "../middlewares/validate-request-data.
 
 export const rootRouter = express.Router();
 
-rootRouter.get("/:someValue", useRequestId, requestLoggerMiddleware, getRootHandler);
+rootRouter.get("/ping", useRequestId, requestLoggerMiddleware, getRootHandler);
 rootRouter.post("/data", useRequestId, requestLoggerMiddleware, validateRequestDataSchema(RootSchemaPostData), postRootDataHandler);
