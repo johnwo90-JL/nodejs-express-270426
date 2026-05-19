@@ -1,24 +1,23 @@
-import { randomUUID } from "node:crypto";
+import { DatabaseProvider, sqlite3Provider } from "../providers/db.sqlite3.provider.js";
 
+import { UsersModel } from "../models/users.model.js";
 
-const users = [{
-    id: randomUUID(),
-    username: "Foobar",
-    email: "foo@bar.com",
-    password: "N/A",
-    createdAt: Date.now() - 24 * 60 * 60 * 1000,
-    updatedAt: Date.now(),
-}];
+const provider = new sqlite3Provider();
 
-console.log(`Created ${users.length} mocked users:`);
-users.forEach(user => console.log(`User "${user.username}, id: "${user.id}".`));
+export class UsersService {
+    /**  @type {DatabaseProvider | null} */
+    #dbProvider = null;
 
-export function getById(id) {
-    const filtered = users.filter(e => e.id === id);
-
-    return filtered[0] ?? null;
+    async init(dbProvider) {
+        this.#dbProvider = dbProvider;
+        await this.#dbProvider.init();
+    }
+ 
+    printModels() {console.log(this.#dbProvider.getModels());}
 }
 
-export function getAll() {
-    return users;
-}
+const myUsersService = new UsersService();
+await myUsersService.init(provider);
+console.log(UsersModel(provider));
+
+myUsersService.printModels()
